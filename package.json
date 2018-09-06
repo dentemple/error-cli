@@ -1,0 +1,22 @@
+{
+  "name": "jaro",
+  "version": "1.0.0",
+  "description": "error finder",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prattjoel/JARO.git"
+  },
+  "author": "joel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prattjoel/JARO/issues"
+  },
+  "homepage": "https://github.com/prattjoel/JARO#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
