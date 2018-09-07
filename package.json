@@ -2,6 +2,7 @@
   "name": "jaro",
   "version": "1.0.0",
   "description": "hello form JARO",
+
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rcolon100/JARO.git"
+    "url": "git+https://github.com/Akouvik/JARO.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Rcolon100/JARO/issues"
+    "url": "https://github.com/Akouvik/JARO/issues"
   },
-  "homepage": "https://github.com/Rcolon100/JARO#readme",
+  "homepage": "https://github.com/Akouvik/JARO#readme",
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
@@ -38,6 +39,9 @@
   "dependencies": {
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
-    "webpack": "^4.17.2"
+    "webpack": "^4.17.2",
+     "mongoose": "^5.2.13",
+    "express": "^4.16.3"
   }
+
 }
