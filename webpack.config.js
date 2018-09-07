@@ -26,6 +26,9 @@ module.exports = {
 		publicPath: 'http://localhost:8080/build/',
 		hotOnly: true,
 		historyApiFallback: false,
+		proxy: {
+			"/api": "http://localhost:3000"
+		},
 	},
 	resolve: {
 		extensions: ['*', '.js', '.jsx']

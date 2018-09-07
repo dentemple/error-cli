@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TestBtn from './TestBtn';
+import TestForm from './TestForm';
 
 
 export default class App extends Component {
@@ -7,7 +7,7 @@ export default class App extends Component {
 		return (
 			<div>
 				<h1>Get Drunk On Errors!</h1>
-				<TestBtn/>
+				<TestForm/>
 			</div>
 		)
 	}
