@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --open",
+    "start": "webpack-dev-server --hot --open --mode development",
     "build": "webpack"
   },
   "repository": {
@@ -40,9 +40,6 @@
     "mongoose": "^5.2.13",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
-    "webpack": "^4.17.2",
-    "mongoose": "^5.2.13",
-    "express": "^4.16.3"
-
+    "webpack": "^4.17.2"
   }
 }
