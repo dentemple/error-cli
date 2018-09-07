@@ -1,6 +1,7 @@
 {
   "name": "jaro",
   "version": "1.0.0",
+
   "description": "hello form JARO",
   "main": "MainUser.js",
   "scripts": {
@@ -21,4 +22,5 @@
     "express": "^4.16.3"
   },
   "devDependencies": {}
+
 }
