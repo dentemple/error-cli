@@ -9,7 +9,8 @@ db.once("open", () => {
 
 const MainUser = new mongoose.Schema({
   name: String,
-  password: String
+  password: String,
+  savedSearches: String
 });
 
 module.exports = mongoose.model("User", MainUser);

@@ -17,6 +17,18 @@ const UserController = {
 
       res.send(aUser);
     });
+  },
+  getUser(req, res) {
+    User.findOne({ name: "akouvi" }, (err, user) => {
+      console.log("GETTING A USER");
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(user);
+
+        res.send(user);
+      }
+    });
   }
 };
 
