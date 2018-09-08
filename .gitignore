@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 
+AuthConfig.js
 package-lock.json
-=======
-/package-lock.json
->>>>>>> 82cca8c59f2701c04f31084d7ca6ae0405c166bb
 /node_modules
 .DS_Store
