@@ -9,7 +9,8 @@ export default class App extends Component {
 		return (
 			<div>
 				<h1 className='heading'>Get Drunk On Errors!</h1>
-				<TestForm/>
+				{/* <TestForm/> */}
+				<MainPage/>
 			</div>
 		)
 	}
