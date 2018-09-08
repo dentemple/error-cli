@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 const User = require("./UserModel");
-const authInfo = require("../AuthConfig");
+const authInfo = require('../AuthConfig');
 
 const UserController = {
   checkDB(req, res, next) {
@@ -59,18 +59,18 @@ const UserController = {
         "Content-Type": "application/json; charset=utf-8",
         Accept: "application/json"
       }
+    }).then((data) => {
+    //  console.log({res});
+      return data.json()
+    }).then((json) => {
+    //  console.log({json});
+      res.locals.token = json.access_token;
+      // res.send('user authenticated')
+      next()
+    }).catch((err) => {
+      console.log({err});
+      res.end()
     })
-      .then(res => {
-        return res.json();
-      })
-      .then(json => {
-        res.locals.token = json.access_token;
-        next();
-      })
-      .catch(err => {
-        console.log({ err });
-        res.end();
-      });
   },
   getAuthInfo(req, res, next) {
     const token = res.locals.token;
