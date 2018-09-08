@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --hot --open --mode development",
-    "build": "webpack"
+    "build": "webpack",
+    "startServ": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
     "file-loader": "^2.0.0",
+    "nodemon": "^1.18.4",
     "style-loader": "^0.23.0",
     "url-loader": "^1.1.1",
     "webpack-cli": "^3.1.0",
@@ -40,8 +42,10 @@
   "dependencies": {
     "es6-promise": "^4.2.4",
     "express": "^4.16.3",
+    "fetch": "^1.1.0",
     "isomorphic-fetch": "^2.2.1",
     "mongoose": "^5.2.13",
+    "node-fetch": "^2.2.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "webpack": "^4.17.2"
