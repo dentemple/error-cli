@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --open",
+    "start": "webpack-dev-server --hot --open --mode development",
     "build": "webpack"
   },
   "repository": {
@@ -37,7 +37,9 @@
     "webpack-dev-server": "^3.1.8"
   },
   "dependencies": {
+    "es6-promise": "^4.2.4",
     "express": "^4.16.3",
+    "isomorphic-fetch": "^2.2.1",
     "mongoose": "^5.2.13",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
