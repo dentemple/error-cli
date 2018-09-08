@@ -3,10 +3,13 @@ const app = express();
 const bodyParser = require("body-parser");
 const UserController = require("./UserController");
 const SearchController = require("./SearchController");
+const testdata = require("../appleo");
 
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => res.send("up and running"));
+app.get("/", (req, res) => {
+  res.send("up and running");
+});
 app.get("/login", UserController.authenticateUser);
 app.get(
   "/oauth",
@@ -15,7 +18,5 @@ app.get(
   UserController.checkDB,
   UserController.addUser
 );
-app.get('/search',
-  SearchController.githubSearch
-)
+app.get("/search", SearchController.githubSearch);
 app.listen(3000, () => console.log("listening on port 3000"));

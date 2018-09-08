@@ -1,12 +1,12 @@
 const fetch = require("node-fetch");
 const User = require("./UserModel");
-const authInfo = require('../AuthConfig');
+const authInfo = require("../AuthConfig");
 
 const UserController = {
   checkDB(req, res, next) {
     // console.log(res.locals);
     User.findOne({ name: res.locals.username }, (err, response) => {
-      console.log(response, "form checkDB");
+      // console.log(response, "form checkDB");
       if (response) {
         res.send(response);
       } else {
@@ -19,13 +19,13 @@ const UserController = {
       name: res.locals.username,
       image: res.locals.image
     });
-    console.log("this is aUser", aUser);
+    // console.log("this is aUser", aUser);
 
     aUser.save((err, aUser) => {
       if (err) {
         res.status(404).send("user not found");
       } else {
-        console.log("another log of aUser", aUser);
+        // console.log("another log of aUser", aUser);
         res.status(200).send(aUser);
       }
     });
@@ -49,7 +49,7 @@ const UserController = {
   },
   handleAthenticatedUser(req, res, next) {
     const code = req.query.code;
-    console.log({ code });
+    // console.log({ code });
     const tokenUrl = `https://github.com/login/oauth/access_token?client_id=${
       authInfo.CLIENT_ID
     }&client_secret=${authInfo.CLIENT_SECRET}&code=${code}`;
@@ -59,18 +59,21 @@ const UserController = {
         "Content-Type": "application/json; charset=utf-8",
         Accept: "application/json"
       }
-    }).then((data) => {
-    //  console.log({res});
-      return data.json()
-    }).then((json) => {
-    //  console.log({json});
-      res.locals.token = json.access_token;
-      // res.send('user authenticated')
-      next()
-    }).catch((err) => {
-      console.log({err});
-      res.end()
     })
+      .then(data => {
+        //  console.log({res});
+        return data.json();
+      })
+      .then(json => {
+        //  console.log({json});
+        res.locals.token = json.access_token;
+        // res.send('user authenticated')
+        next();
+      })
+      .catch(err => {
+        console.log({ err });
+        res.end();
+      });
   },
   getAuthInfo(req, res, next) {
     const token = res.locals.token;
@@ -81,7 +84,7 @@ const UserController = {
         return resp.json();
       })
       .then(json => {
-        console.log("this is json", { json });
+        // console.log("this is json", { json });
         res.locals.username = json.login;
         res.locals.image = json.avatar_url;
 
