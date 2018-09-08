@@ -8,9 +8,12 @@ app.use(bodyParser.json());
 
 app.get("/", (req, res) => res.send("up and running"));
 app.get("/login", UserController.authenticateUser);
-app.get("/oauth",
+app.get(
+  "/oauth",
   UserController.handleAthenticatedUser,
-  UserController.getAuthInfo
+  UserController.getAuthInfo,
+  UserController.checkDB,
+  UserController.addUser
 );
 app.get('/search',
   SearchController.githubSearch

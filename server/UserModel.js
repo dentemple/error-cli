@@ -9,7 +9,7 @@ db.once("open", () => {
 
 const MainUser = new mongoose.Schema({
   name: String,
-  password: String,
+  image: String,
   savedSearches: String
 });
 
