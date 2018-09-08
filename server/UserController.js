@@ -1,6 +1,6 @@
-const fetch = require('node-fetch');
+const fetch = require("node-fetch");
 const User = require("./UserModel");
-const authInfo = require('../AuthConfig');
+const authInfo = require("../AuthConfig");
 
 console.log(authInfo);
 
@@ -34,6 +34,7 @@ const UserController = {
       res.status(200).send(aUser);
     });
   },
+
   getUser(req, res) {
     User.findOne({ name: "akouvi" }, (err, user) => {
       // console.log("GETTING A USER");
@@ -48,33 +49,41 @@ const UserController = {
       }
     });
   },
+
   authenticateUser(req, res) {
-    const authUrl = `https://github.com/login/oauth/authorize?scope=user:email&client_id=${authInfo.CLIENT_ID}`
+    const authUrl = `https://github.com/login/oauth/authorize?scope=user:email&client_id=${
+      authInfo.CLIENT_ID
+    }`;
     res.redirect(authUrl);
   },
+
   handleAthenticatedUser(req, res) {
     const code = req.query.code;
-    console.log({code});
-    const tokenUrl = `https://github.com/login/oauth/access_token?client_id=${authInfo.CLIENT_ID}&client_secret=${authInfo.CLIENT_SECRET}&code=${code}`
+    console.log({ code });
+    const tokenUrl = `https://github.com/login/oauth/access_token?client_id=${
+      authInfo.CLIENT_ID
+    }&client_secret=${authInfo.CLIENT_SECRET}&code=${code}`;
     fetch(tokenUrl, {
-      method: 'POST',
+      method: "POST",
       headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      Accept: "application/json",
-      // "Content-Type": "application/x-www-form-urlencoded",
-    }
-  }).then((res) => {
-    console.log({res});
-    return res.json()
-  }).then((json) => {
-    console.log({json});
+        "Content-Type": "application/json; charset=utf-8",
+        Accept: "application/json"
+        // "Content-Type": "application/x-www-form-urlencoded",
+      }
+    })
+      .then(res => {
+        console.log({ res });
+        return res.json();
+      })
+      .then(json => {
+        console.log({ json });
 
-    res.send('user authenticated')
-  }).catch((err) => {
-    console.log({err});
-    res.end()
-  })
-
+        res.send("user authenticated");
+      })
+      .catch(err => {
+        console.log({ err });
+        res.end();
+      });
   }
 };
 
