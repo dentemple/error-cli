@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const User = require("./UserModel");
 const authInfo = require('../AuthConfig');
 
-console.log(authInfo);
+// console.log(authInfo);
 
 const UserController = {
   checkDB(req, res, next) {
@@ -63,9 +63,9 @@ const UserController = {
         Accept: "application/json",
         // "Content-Type": "application/x-www-form-urlencoded",
       }
-    }).then((res) => {
+    }).then((data) => {
     //  console.log({res});
-      return res.json()
+      return data.json()
     }).then((json) => {
     //  console.log({json});
       res.locals.token = json.access_token;
