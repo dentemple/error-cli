@@ -66,39 +66,37 @@ const UserController = {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        Accept: "application/json",
+        Accept: "application/json"
         // "Content-Type": "application/x-www-form-urlencoded",
       }
-    }).then((res) => {
-    //  console.log({res});
-      return res.json()
-    }).then((json) => {
-    //  console.log({json});
-      res.locals.token = json.access_token;
-      // res.send('user authenticated')
-      next()
-    }).catch((err) => {
-      console.log({err});
-      res.end()
     })
-
+      .then(res => {
+        //  console.log({res});
+        return res.json();
+      })
+      .then(json => {
+        //  console.log({json});
+        res.locals.token = json.access_token;
+        // res.send('user authenticated')
+        next();
+      })
+      .catch(err => {
+        console.log({ err });
+        res.end();
+      });
   },
   getAuthInfo(req, res, next) {
     const token = res.locals.token;
     const authUrl = `https://api.github.com/user?access_token=${token}`;
     //console.log({token});
-    fetch(authUrl).then((resp) => {
-      return resp.json();
-    }).then((json) => {
-      console.log({json});
-      res.locals.username = json.login;
-      // next()
-      res.send('user authenticated')
-    }).catch((err) => {
-      console.log({err});
-      res.end()
-    })
-
+    fetch(authUrl)
+      .then(resp => {
+        return resp.json();
+      })
+      .then(json => {
+        console.log({ json });
+        res.locals.username = json.login;
+        // next()
         res.send("user authenticated");
       })
       .catch(err => {
