@@ -9,7 +9,7 @@ const app = express();
 ///////////
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/ecli_db', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/ecli_db', { useNewUrlParser: true });
 
 const db = mongoose.connection;
 
