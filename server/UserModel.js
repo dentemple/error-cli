@@ -1,16 +1,16 @@
-//create your db here a model is class in which we construct our documents
-const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/drunkonerror");
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error"));
-db.once("open", () => {
-  console.log("connected to mongod");
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
+  id: String,
+  username: String,
+  password: String
 });
 
-const MainUser = new mongoose.Schema({
-  name: String,
-  image: String,
-  savedSearches: String
-});
+const User = mongoose.model("User", userSchema);
 
-module.exports = mongoose.model("User", MainUser);
+module.exports = User;
+
+
+//TODO:
+// -Add bcrypt encryption?

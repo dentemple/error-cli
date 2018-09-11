@@ -21,19 +21,21 @@ module.exports = {
 			},
 			{
 				test: /\.(png|svg|jpg|gif)$/,
-				use: ['file-loader', 'url-loader']
+				use: ['file-loader']
 			}
 		]
 	},
 	devServer: {
 		contentBase: path.join(__dirname, 'public/'),
-		port: 8080,
-		publicPath: 'http://localhost:8080/build/',
-		hotOnly: true,
+		port: 3000,
+		publicPath: 'http://localhost:3000/build/',
 		historyApiFallback: false,
 		proxy: {
-			"/api": "http://localhost:3000"
-		},
+      '/api': {
+          target: 'http://localhost:8080/',
+          secure: false
+      }
+    },
 	},
 	resolve: {
 		extensions: ['*', '.js', '.jsx']

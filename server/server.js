@@ -1,22 +1,43 @@
+const SearchController = require("./SearchController");
+const UserController = require("./UserController");
+const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
-const UserController = require("./UserController");
-const SearchController = require("./SearchController");
-const testdata = require("../appleo");
 
+///////////
+/*MongoDB*/
+///////////
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/ecli_db', { useNewUrlParser: true });
+
+const db = mongoose.connection;
+
+db.on("error", console.error.bind(console, "connection error"));
+
+db.once("open", () => {
+  console.log("Connected to the ecli_db local database");
+});
+
+///////////////
+/*MiddleWare*/
+///////////////
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
+///////////
+/*Routes*/
+///////////
+app.get("/api", (req, res) => {
   res.send("up and running");
 });
-app.get("/login", UserController.authenticateUser);
-app.get(
-  "/oauth",
+
+app.get("/api/login", UserController.authenticateUser);
+
+app.get("/api/oauth",
   UserController.handleAthenticatedUser,
   UserController.getAuthInfo,
   UserController.checkDB,
   UserController.addUser
 );
-app.get("/search", SearchController.githubSearch);
-app.listen(3000, () => console.log("listening on port 3000"));
+
+app.listen(8080, () => console.log("🚦 Now listening on port 8080 🚦"));
