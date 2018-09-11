@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "commander": "^2.18.0",
     "es6-promise": "^4.2.4",
     "express": "^4.16.3",
     "fetch": "^1.1.0",
@@ -51,6 +52,7 @@
     "node-fetch": "^2.2.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
+    "request": "^2.88.0",
     "webpack": "^4.17.2"
   }
 }

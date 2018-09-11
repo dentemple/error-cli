@@ -9,7 +9,7 @@ const app = express();
 ///////////
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/ecli_db', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/ecli_db', { useNewUrlParser: true });
 
 const db = mongoose.connection;
 
@@ -30,6 +30,11 @@ app.use(bodyParser.json());
 app.get("/api", (req, res) => {
   res.send("up and running");
 });
+
+app.get('/testing', (req,res) => {
+  console.log('hit the server');
+  res.send('You got it DUDE!!!')
+})
 
 app.get("/api/login", UserController.authenticateUser);
 

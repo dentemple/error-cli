@@ -1,0 +1,17 @@
+{
+  "name": "ecli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ecli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "preferGlobal": true,
+  "bin": "./ecli.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.18.0"
+  }
+}

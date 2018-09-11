@@ -1,8 +1,20 @@
 const fetch = require("node-fetch");
 const User = require("./UserModel");
-
+const mongoose = require('mongoose');
+const assert = require('assert')
 
 const UserController = {
+
+  //TODO:
+  // parse responses from CLI for consistency 
+  // e.g: Lowercase all responses etc.
+  createUser(username, password){
+    User.create({username: username, password: password}, (err, res) => {
+      assert.equal(null, err);
+      console.info('New User added !\n',res);
+      mongoose.disconnect();
+    })
+  },
 
   
   checkDB(req, res, next) {
