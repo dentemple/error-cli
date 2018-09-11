@@ -31,6 +31,11 @@ app.get("/api", (req, res) => {
   res.send("up and running");
 });
 
+app.get('/testing', (req,res) => {
+  console.log('hit the server');
+  res.send('You got it DUDE!!!')
+})
+
 app.get("/api/login", UserController.authenticateUser);
 
 app.get("/api/oauth",

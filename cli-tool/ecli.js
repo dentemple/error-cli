@@ -2,6 +2,7 @@
 
 const ecli = require('commander');
 // const {spawn} = require('child_process');
+const request = require('request')
 const {createUser}  = require('../server/UserController');
 
 let currentUser = null;
@@ -16,7 +17,10 @@ ecli
   .alias('S')
   .description('SignUp for ecli')
   .action((username, password) => {
-    createUser(username, password)
+    // createUser(username, password)
+    request('http://localhost:8080/testing', (err, res) => {
+
+    })
   })
 
   ecli
