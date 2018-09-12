@@ -25,14 +25,17 @@ db.once('open', () => {
 ///////////////
 /*MiddleWare*/
 ///////////////
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+)
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
 
 ///////////
 /*Routes*/
 ///////////
-const notesRoutes = require('./notes/routes.js')
-app.use('/notes', notesRoutes)
+app.use('/users', userRouter)
 
 app.get('/api', (req, res) => {
   res.send('up and running')
