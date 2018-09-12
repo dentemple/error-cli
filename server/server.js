@@ -34,16 +34,25 @@ db.once('open', () => {
 ///////////////
 /*MiddleWare*/
 ///////////////
+<<<<<<< 8353ca75baf58607ce992e842730e3da67d6d3ab
 <<<<<<< 919750fccd3074dda0221eebe10178550c037f15
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 =======
+=======
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+)
+>>>>>>> Add routes and configuration
 app.use(bodyParser.json())
 >>>>>>> Add routes
 
 ///////////
 /*Routes*/
 ///////////
+<<<<<<< 8353ca75baf58607ce992e842730e3da67d6d3ab
 <<<<<<< 919750fccd3074dda0221eebe10178550c037f15
 
 app.use("/users", userRouter)
@@ -63,6 +72,9 @@ app.get("/api", (req, res) => {
 =======
 const notesRoutes = require('./notes/routes.js')
 app.use('/notes', notesRoutes)
+=======
+app.use('/notes', require('./notesFeature/routes.js'))
+>>>>>>> Add routes and configuration
 
 app.get('/api', (req, res) => {
   res.send('up and running')

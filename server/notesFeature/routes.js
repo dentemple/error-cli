@@ -3,10 +3,10 @@ const router = express.Router()
 
 const {
   createNote,
-  getNote,
+  getNoteFromUid,
   getAllNotes,
-  updateNote,
-  deleteNote
+  updateNoteFromUid,
+  deleteNoteFromUid
 } = require('./controller')
 
 router.get('/ping', (req, res) => res.status(200).send({ ping: 'ok' }))
@@ -16,14 +16,12 @@ router.post('/create', createNote)
 
 /* read */
 router.get('/all', getAllNotes)
-router.get('/:uid', getNote)
-router.get('/:code', getNote)
-router.get('/:term', getNote)
+router.get('/:uid', getNoteFromUid)
 
 /* update */
-router.patch('/:uid', updateNote)
+router.patch('/:uid', updateNoteFromUid)
 
 /* delete */
-router.delete('/:uid', deleteNote)
+router.delete('/:uid', deleteNoteFromUid)
 
 module.exports = router
