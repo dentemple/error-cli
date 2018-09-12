@@ -8,7 +8,8 @@
     "start": "electron .",
     "watch": "webpack-dev-server --hot --open --mode development",
     "build": "webpack",
-    "startServ": "nodemon server/server.js"
+    "startServ": "nodemon server/server.js",
+    "app": "cd ./cli-tool && npm link && cd ../; node server/server.js & electron ."
   },
   "repository": {
     "type": "git",
