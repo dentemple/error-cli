@@ -1,27 +1,23 @@
 {
-  "name": "jaro",
+  "name": "error-cli",
   "version": "1.0.0",
-  "description": "hello form JARO",
+  "description": "A notepad for errors",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "watch": "webpack-dev-server --hot --open --mode development",
+    "watch": "concurrently --kill-others-on-fail \"npm run startServ\" \"webpack-dev-server --hot --open --mode development\"",
     "build": "webpack",
     "startServ": "nodemon server/server.js",
     "app": "cd ./cli-tool && npm link && cd ../; node server/server.js & electron ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Akouvik/JARO.git"
+    "url": "git+https://github.com/error-cli/error-cli"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Akouvik/JARO/issues"
-  },
-  "homepage": "https://github.com/Akouvik/JARO#readme",
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
@@ -45,11 +41,13 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "commander": "^2.18.0",
+    "concurrently": "^4.0.1",
     "es6-promise": "^4.2.4",
     "express": "^4.16.3",
     "fetch": "^1.1.0",
     "isomorphic-fetch": "^2.2.1",
     "mongoose": "^5.2.13",
+    "mongoose-sequence": "^4.0.1",
     "node-fetch": "^2.2.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
