@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
+    "start": "electron . errors",
     "watch": "webpack-dev-server --hot --open --mode development",
     "build": "webpack",
     "startServ": "nodemon server/server.js",
@@ -50,6 +50,7 @@
     "fetch": "^1.1.0",
     "isomorphic-fetch": "^2.2.1",
     "mongoose": "^5.2.13",
+    "mongoose-sequence": "^4.0.1",
     "node-fetch": "^2.2.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
