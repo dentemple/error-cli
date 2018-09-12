@@ -32,10 +32,8 @@ module.exports = {
     publicPath: 'http://localhost:3000/build/',
     historyApiFallback: false,
     proxy: {
-      '/api': {
-        target: 'http://localhost:8080/',
-        secure: false
-      }
+      context: ['/api', '/notes'],
+      target: 'http://localhost:8080/'
     }
   },
   resolve: {
